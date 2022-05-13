@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TestesDonaMarina.Dominio.ModuloDisciplina;
+using TestesDonaMarina.Dominio.ModuloMateria;
 using TestesDonaMarina.Infra.Arquivos.Compartilhado.Serializadores;
 
 namespace TestesDonaMarina.Infra.Arquivos.Compartilhado
@@ -18,7 +19,7 @@ namespace TestesDonaMarina.Infra.Arquivos.Compartilhado
             Disciplinas = new List<Disciplina>();
 
 
-            //Materias = new List<Materia>();
+            Materias = new List<Materia>();
 
             //Testes = new List<Teste>();
 
@@ -34,7 +35,7 @@ namespace TestesDonaMarina.Infra.Arquivos.Compartilhado
 
         public List<Disciplina> Disciplinas { get; set; }
 
-       // public List<Materia> Materias { get; set; }
+        public List<Materia> Materias { get; set; }
 
         //public List<Teste> Testes { get; set; }
 
@@ -52,8 +53,8 @@ namespace TestesDonaMarina.Infra.Arquivos.Compartilhado
             if (ctx.Disciplinas.Any())
                 this.Disciplinas.AddRange(ctx.Disciplinas);
 
-            //if (ctx.Materias.Any())
-            //    this.Materias.AddRange(ctx.Materias);
+            if (ctx.Materias.Any())
+                this.Materias.AddRange(ctx.Materias);
 
             //if (ctx.Testes.Any())
             //    this.Testes.AddRange(ctx.Testes);

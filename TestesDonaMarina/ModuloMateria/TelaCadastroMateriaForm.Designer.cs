@@ -31,12 +31,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.rdbPrimeira = new System.Windows.Forms.RadioButton();
+            this.rdbSegunda = new System.Windows.Forms.RadioButton();
             this.btnCancelarDisciplina = new System.Windows.Forms.Button();
             this.btnGravarDisciplina = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.txtNomeMateria = new System.Windows.Forms.TextBox();
+            this.cmbDisciplina = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
@@ -68,27 +68,29 @@
             this.label3.TabIndex = 3;
             this.label3.Text = "Série:";
             // 
-            // radioButton1
+            // rdbPrimeira
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(115, 87);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(64, 19);
-            this.radioButton1.TabIndex = 4;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "1º Série";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.rdbPrimeira.AutoSize = true;
+            this.rdbPrimeira.Location = new System.Drawing.Point(115, 87);
+            this.rdbPrimeira.Name = "rdbPrimeira";
+            this.rdbPrimeira.Size = new System.Drawing.Size(64, 19);
+            this.rdbPrimeira.TabIndex = 4;
+            this.rdbPrimeira.TabStop = true;
+            this.rdbPrimeira.Text = "1º Série";
+            this.rdbPrimeira.UseVisualStyleBackColor = true;
+            this.rdbPrimeira.CheckedChanged += new System.EventHandler(this.rdbPrimeira_CheckedChanged);
             // 
-            // radioButton2
+            // rdbSegunda
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(185, 88);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(64, 19);
-            this.radioButton2.TabIndex = 5;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "2º Série";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.rdbSegunda.AutoSize = true;
+            this.rdbSegunda.Location = new System.Drawing.Point(185, 88);
+            this.rdbSegunda.Name = "rdbSegunda";
+            this.rdbSegunda.Size = new System.Drawing.Size(64, 19);
+            this.rdbSegunda.TabIndex = 5;
+            this.rdbSegunda.TabStop = true;
+            this.rdbSegunda.Text = "2º Série";
+            this.rdbSegunda.UseVisualStyleBackColor = true;
+            this.rdbSegunda.CheckedChanged += new System.EventHandler(this.rdbSegunda_CheckedChanged);
             // 
             // btnCancelarDisciplina
             // 
@@ -107,21 +109,24 @@
             this.btnGravarDisciplina.TabIndex = 6;
             this.btnGravarDisciplina.Text = "Gravar";
             this.btnGravarDisciplina.UseVisualStyleBackColor = true;
+            this.btnGravarDisciplina.Click += new System.EventHandler(this.btnGravarDisciplina_Click);
             // 
-            // textBox1
+            // txtNomeMateria
             // 
-            this.textBox1.Location = new System.Drawing.Point(115, 31);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(149, 23);
-            this.textBox1.TabIndex = 8;
+            this.txtNomeMateria.Location = new System.Drawing.Point(115, 31);
+            this.txtNomeMateria.Name = "txtNomeMateria";
+            this.txtNomeMateria.Size = new System.Drawing.Size(149, 23);
+            this.txtNomeMateria.TabIndex = 8;
             // 
-            // comboBox1
+            // cmbDisciplina
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(115, 58);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(94, 23);
-            this.comboBox1.TabIndex = 9;
+            this.cmbDisciplina.BackColor = System.Drawing.Color.White;
+            this.cmbDisciplina.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbDisciplina.FormattingEnabled = true;
+            this.cmbDisciplina.Location = new System.Drawing.Point(115, 58);
+            this.cmbDisciplina.Name = "cmbDisciplina";
+            this.cmbDisciplina.Size = new System.Drawing.Size(94, 23);
+            this.cmbDisciplina.TabIndex = 9;
             // 
             // label4
             // 
@@ -134,6 +139,7 @@
             // 
             // textBox2
             // 
+            this.textBox2.Enabled = false;
             this.textBox2.Location = new System.Drawing.Point(115, 6);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(52, 23);
@@ -146,12 +152,12 @@
             this.ClientSize = new System.Drawing.Size(276, 144);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.cmbDisciplina);
+            this.Controls.Add(this.txtNomeMateria);
             this.Controls.Add(this.btnCancelarDisciplina);
             this.Controls.Add(this.btnGravarDisciplina);
-            this.Controls.Add(this.radioButton2);
-            this.Controls.Add(this.radioButton1);
+            this.Controls.Add(this.rdbSegunda);
+            this.Controls.Add(this.rdbPrimeira);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -167,12 +173,12 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton rdbPrimeira;
+        private System.Windows.Forms.RadioButton rdbSegunda;
         private System.Windows.Forms.Button btnCancelarDisciplina;
         private System.Windows.Forms.Button btnGravarDisciplina;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.TextBox txtNomeMateria;
+        private System.Windows.Forms.ComboBox cmbDisciplina;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBox2;
     }

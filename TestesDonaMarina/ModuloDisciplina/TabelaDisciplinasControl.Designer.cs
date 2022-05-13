@@ -1,6 +1,6 @@
 ﻿namespace TestesDonaMarina.ModuloDisciplina
 {
-    partial class TabelaDisciplinasControl
+    partial class TabelaDisciplinaControl
     {
         /// <summary> 
         /// Required designer variable.
@@ -42,12 +42,12 @@
             this.grid.Size = new System.Drawing.Size(360, 289);
             this.grid.TabIndex = 0;
             // 
-            // TabelaDisciplinasControl
+            // TabelaMateriaControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.grid);
-            this.Name = "TabelaDisciplinasControl";
+            this.Name = "TabelaMateriaControl";
             this.Size = new System.Drawing.Size(360, 289);
             ((System.ComponentModel.ISupportInitialize)(this.grid)).EndInit();
             this.ResumeLayout(false);

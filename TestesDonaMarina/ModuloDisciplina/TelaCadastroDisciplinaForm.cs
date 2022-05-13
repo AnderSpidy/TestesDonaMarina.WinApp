@@ -7,12 +7,12 @@ namespace TestesDonaMarina.ModuloDisciplina
 {
     public partial class TelaCadastroDisciplinaForm : Form
     {
+        private Disciplina disciplina;
+
         public TelaCadastroDisciplinaForm()
         {
             InitializeComponent();
         }
-
-        private Disciplina disciplina;
 
         public Func<Disciplina, ValidationResult> GravarRegistro { get; set; }
 

@@ -1,13 +1,14 @@
 ﻿using System.Collections.Generic;
-using System.Windows.Forms;
-using TestesDonaMarina.Compartilhado;
-using TestesDonaMarina.Dominio.ModuloDisciplina;
 
-namespace TestesDonaMarina.ModuloDisciplina
+using TestesDonaMarina.Compartilhado;
+using System.Windows.Forms;
+using TestesDonaMarina.Dominio.ModuloMateria;
+
+namespace TestesDonaMarina.ModuloMateria
 {
-    public partial class TabelaDisciplinaControl: UserControl
+    public partial class TabelaMateriaControl : UserControl
     {
-        public TabelaDisciplinaControl()
+        public TabelaMateriaControl()
         {
             InitializeComponent();
             grid.ConfigurarGridZebrado();
@@ -28,21 +29,19 @@ namespace TestesDonaMarina.ModuloDisciplina
             return colunas;
         }
 
-        public int ObtemNumeroDisciplinaSelecionada()
+        public int ObtemNumeroMateriaSelecionada()
         {
             return grid.SelecionarNumero<int>();
         }
 
-        public void AtualizarRegistros(List<Disciplina> disciplinas)
+        public void AtualizarRegistros(List<Materia> materias)
         {
             grid.Rows.Clear();
 
-            foreach (var disciplina in disciplinas)
+            foreach (var materia in materias)
             {
-                grid.Rows.Add(disciplina.Numero, disciplina.Nome);
+                grid.Rows.Add(materia.NomeMateria, materia.Serie, materia.Disciplina.Nome);
             }
         }
-
-        
     }
 }

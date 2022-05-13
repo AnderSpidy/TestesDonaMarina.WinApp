@@ -1,19 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+
 using System.Windows.Forms;
 using TestesDonaMarina.Compartilhado;
 using TestesDonaMarina.Dominio.ModuloDisciplina;
-using TestesDonaMarina.Infra.Arquivos.ModuloDisciplina;
 
 namespace TestesDonaMarina.ModuloDisciplina
 {
     public class ControladorDisciplina : ControladorBase
     {
         private readonly IRepositorioDisciplina repositorioDisciplina;
-        private TabelaDisciplinasControl tabelaDisciplinas;
+        private TabelaDisciplinaControl tabelaDisciplinas;
 
         public ControladorDisciplina(IRepositorioDisciplina repositorioDisciplina)
         {
@@ -31,7 +27,7 @@ namespace TestesDonaMarina.ModuloDisciplina
 
             if (resultado == DialogResult.OK)
             {
-                CarregarContatos();
+                CarregarDisciplinas();
             }
         }
         public override void Editar()
@@ -55,7 +51,7 @@ namespace TestesDonaMarina.ModuloDisciplina
 
             if (resultado == DialogResult.OK)
             {
-                CarregarContatos();
+                CarregarDisciplinas();
             }
         }
 
@@ -76,7 +72,7 @@ namespace TestesDonaMarina.ModuloDisciplina
             if (resultado == DialogResult.OK)
             {
                 repositorioDisciplina.Excluir(disciplinaSelecionada);
-                CarregarContatos();
+                CarregarDisciplinas();
             }
         }
 
@@ -90,9 +86,9 @@ namespace TestesDonaMarina.ModuloDisciplina
         public override UserControl ObtemListagem()
         {
             //if (tabelaContatos == null)
-            tabelaDisciplinas = new TabelaDisciplinasControl();
+            tabelaDisciplinas = new TabelaDisciplinaControl();
 
-            CarregarContatos();
+            CarregarDisciplinas();
 
             return tabelaDisciplinas;
         }
@@ -103,7 +99,7 @@ namespace TestesDonaMarina.ModuloDisciplina
 
             return repositorioDisciplina.SelecionarPorNumero(numero);
         }
-        private void CarregarContatos()
+        private void CarregarDisciplinas()
         {
             List<Disciplina> disciplinas = repositorioDisciplina.SelecionarTodos();
 

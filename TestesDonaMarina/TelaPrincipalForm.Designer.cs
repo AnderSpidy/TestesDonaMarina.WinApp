@@ -133,6 +133,7 @@
             this.btnEditar.Padding = new System.Windows.Forms.Padding(5);
             this.btnEditar.Size = new System.Drawing.Size(62, 62);
             this.btnEditar.Text = "Editar";
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnExcluir
             // 
@@ -144,6 +145,7 @@
             this.btnExcluir.Padding = new System.Windows.Forms.Padding(5);
             this.btnExcluir.Size = new System.Drawing.Size(62, 62);
             this.btnExcluir.Text = "Excluir";
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // btdPdf
             // 
@@ -155,6 +157,7 @@
             this.btdPdf.Padding = new System.Windows.Forms.Padding(5);
             this.btdPdf.Size = new System.Drawing.Size(62, 62);
             this.btdPdf.Text = "PDF";
+            this.btdPdf.Click += new System.EventHandler(this.btdPdf_Click);
             // 
             // labelTipoCadastro
             // 

@@ -1,6 +1,6 @@
 ﻿namespace TestesDonaMarina.ModuloMateria
 {
-    partial class ListagemMateriaControl
+    partial class TabelaMateriaControl
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,32 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            this.grid = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.grid)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
+            // grid
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(88, 102);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(172, 15);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Apresentando Lista de Matérias";
+            this.grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grid.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grid.Location = new System.Drawing.Point(0, 0);
+            this.grid.Name = "grid";
+            this.grid.RowTemplate.Height = 25;
+            this.grid.Size = new System.Drawing.Size(360, 289);
+            this.grid.TabIndex = 0;
             // 
-            // ListagemMateriaControl
+            // TabelaMateriaControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.label1);
-            this.Name = "ListagemMateriaControl";
-            this.Size = new System.Drawing.Size(318, 289);
+            this.Controls.Add(this.grid);
+            this.Name = "TabelaMateriaControl";
+            this.Size = new System.Drawing.Size(360, 289);
+            ((System.ComponentModel.ISupportInitialize)(this.grid)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridView grid;
     }
 }

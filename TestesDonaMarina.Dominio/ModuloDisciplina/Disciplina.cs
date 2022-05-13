@@ -8,6 +8,7 @@ namespace TestesDonaMarina.Dominio.ModuloDisciplina
         public Disciplina()
         {
         }
+
         public string Nome { get; set; }
         public override void Atualizar(Disciplina registro)
         {

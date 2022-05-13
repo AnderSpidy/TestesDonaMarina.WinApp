@@ -9,11 +9,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1-Apresentação", "1-Apres
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2-Domínio", "2-Domínio", "{5266EC42-E73F-44CE-8B6F-F57A0252CF2F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestesDonaMarina.Dominio", "TestesDonaMarina.Dominio\TestesDonaMarina.Dominio.csproj", "{50CBBCF6-721E-47C6-B257-9762AF497515}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestesDonaMarina.Dominio", "TestesDonaMarina.Dominio\TestesDonaMarina.Dominio.csproj", "{50CBBCF6-721E-47C6-B257-9762AF497515}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3-Infra", "3-Infra", "{3B20B4CF-9BD4-4EB1-B1A7-A9DEA470B87A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestesDonaMarina.Infra.Arquivos", "TestesDonaMarina.Infra.Arquivos\TestesDonaMarina.Infra.Arquivos.csproj", "{C25B41B4-1891-42C0-A180-547673AB5D94}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestesDonaMarina.Infra.Arquivos", "TestesDonaMarina.Infra.Arquivos\TestesDonaMarina.Infra.Arquivos.csproj", "{C25B41B4-1891-42C0-A180-547673AB5D94}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Arquivos", "Arquivos", "{9DF4E6DA-BA08-4CCB-96B7-1DA70D5680AC}"
 EndProject
