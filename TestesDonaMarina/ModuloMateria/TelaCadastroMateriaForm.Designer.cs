@@ -33,8 +33,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.rdbPrimeira = new System.Windows.Forms.RadioButton();
             this.rdbSegunda = new System.Windows.Forms.RadioButton();
-            this.btnCancelarDisciplina = new System.Windows.Forms.Button();
-            this.btnGravarDisciplina = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnGravar = new System.Windows.Forms.Button();
             this.txtNomeMateria = new System.Windows.Forms.TextBox();
             this.cmbDisciplina = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -71,6 +71,7 @@
             // rdbPrimeira
             // 
             this.rdbPrimeira.AutoSize = true;
+            this.rdbPrimeira.Checked = true;
             this.rdbPrimeira.Location = new System.Drawing.Point(115, 87);
             this.rdbPrimeira.Name = "rdbPrimeira";
             this.rdbPrimeira.Size = new System.Drawing.Size(64, 19);
@@ -78,7 +79,6 @@
             this.rdbPrimeira.TabStop = true;
             this.rdbPrimeira.Text = "1º Série";
             this.rdbPrimeira.UseVisualStyleBackColor = true;
-            this.rdbPrimeira.CheckedChanged += new System.EventHandler(this.rdbPrimeira_CheckedChanged);
             // 
             // rdbSegunda
             // 
@@ -87,29 +87,29 @@
             this.rdbSegunda.Name = "rdbSegunda";
             this.rdbSegunda.Size = new System.Drawing.Size(64, 19);
             this.rdbSegunda.TabIndex = 5;
-            this.rdbSegunda.TabStop = true;
             this.rdbSegunda.Text = "2º Série";
             this.rdbSegunda.UseVisualStyleBackColor = true;
-            this.rdbSegunda.CheckedChanged += new System.EventHandler(this.rdbSegunda_CheckedChanged);
             // 
-            // btnCancelarDisciplina
+            // btnCancelar
             // 
-            this.btnCancelarDisciplina.Location = new System.Drawing.Point(189, 113);
-            this.btnCancelarDisciplina.Name = "btnCancelarDisciplina";
-            this.btnCancelarDisciplina.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelarDisciplina.TabIndex = 7;
-            this.btnCancelarDisciplina.Text = "Cancelar";
-            this.btnCancelarDisciplina.UseVisualStyleBackColor = true;
+            this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancelar.Location = new System.Drawing.Point(189, 113);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelar.TabIndex = 7;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
             // 
-            // btnGravarDisciplina
+            // btnGravar
             // 
-            this.btnGravarDisciplina.Location = new System.Drawing.Point(108, 113);
-            this.btnGravarDisciplina.Name = "btnGravarDisciplina";
-            this.btnGravarDisciplina.Size = new System.Drawing.Size(75, 23);
-            this.btnGravarDisciplina.TabIndex = 6;
-            this.btnGravarDisciplina.Text = "Gravar";
-            this.btnGravarDisciplina.UseVisualStyleBackColor = true;
-            this.btnGravarDisciplina.Click += new System.EventHandler(this.btnGravarDisciplina_Click);
+            this.btnGravar.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.btnGravar.Location = new System.Drawing.Point(108, 113);
+            this.btnGravar.Name = "btnGravar";
+            this.btnGravar.Size = new System.Drawing.Size(75, 23);
+            this.btnGravar.TabIndex = 6;
+            this.btnGravar.Text = "Gravar";
+            this.btnGravar.UseVisualStyleBackColor = true;
+            this.btnGravar.Click += new System.EventHandler(this.btnGravar_Click);
             // 
             // txtNomeMateria
             // 
@@ -121,6 +121,7 @@
             // cmbDisciplina
             // 
             this.cmbDisciplina.BackColor = System.Drawing.Color.White;
+            this.cmbDisciplina.DisplayMember = "Nome";
             this.cmbDisciplina.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbDisciplina.FormattingEnabled = true;
             this.cmbDisciplina.Location = new System.Drawing.Point(115, 58);
@@ -154,14 +155,18 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.cmbDisciplina);
             this.Controls.Add(this.txtNomeMateria);
-            this.Controls.Add(this.btnCancelarDisciplina);
-            this.Controls.Add(this.btnGravarDisciplina);
+            this.Controls.Add(this.btnCancelar);
+            this.Controls.Add(this.btnGravar);
             this.Controls.Add(this.rdbSegunda);
             this.Controls.Add(this.rdbPrimeira);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "TelaCadastroMateriaForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro de Matérias";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -175,8 +180,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.RadioButton rdbPrimeira;
         private System.Windows.Forms.RadioButton rdbSegunda;
-        private System.Windows.Forms.Button btnCancelarDisciplina;
-        private System.Windows.Forms.Button btnGravarDisciplina;
+        private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.Button btnGravar;
         private System.Windows.Forms.TextBox txtNomeMateria;
         private System.Windows.Forms.ComboBox cmbDisciplina;
         private System.Windows.Forms.Label label4;

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TestesDonaMarina.Dominio.ModuloDisciplina;
 using TestesDonaMarina.Dominio.ModuloMateria;
+using TestesDonaMarina.Dominio.ModuloQuestao;
 using TestesDonaMarina.Infra.Arquivos.Compartilhado.Serializadores;
 
 namespace TestesDonaMarina.Infra.Arquivos.Compartilhado
@@ -21,9 +22,11 @@ namespace TestesDonaMarina.Infra.Arquivos.Compartilhado
 
             Materias = new List<Materia>();
 
+            Questoes = new List<Questao>();
+            
             //Testes = new List<Teste>();
 
-            //Questoes = new List<Questao>();
+
         }
 
         public DataContext(ISerializador serializador) : this()
@@ -37,9 +40,9 @@ namespace TestesDonaMarina.Infra.Arquivos.Compartilhado
 
         public List<Materia> Materias { get; set; }
 
+        public List<Questao> Questoes { get; set; }
+        
         //public List<Teste> Testes { get; set; }
-
-        //public List<Quastao> Questoes { get; set; }
 
         public void GravarDados()
         {
@@ -56,11 +59,13 @@ namespace TestesDonaMarina.Infra.Arquivos.Compartilhado
             if (ctx.Materias.Any())
                 this.Materias.AddRange(ctx.Materias);
 
+            if (ctx.Questoes.Any())
+                this.Questoes.AddRange(ctx.Questoes);
+
             //if (ctx.Testes.Any())
             //    this.Testes.AddRange(ctx.Testes);
 
-            //if (ctx.Questoes.Any())
-            //    this.Questoes.AddRange(ctx.Questoes);
+
         }
     }
 }

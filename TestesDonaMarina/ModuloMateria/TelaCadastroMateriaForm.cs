@@ -12,12 +12,11 @@ namespace TestesDonaMarina.ModuloMateria
         private Materia materia;
 
         public TelaCadastroMateriaForm(List<Disciplina> disciplinas)
-
         {
             InitializeComponent();
             CarregarDisciplina(disciplinas);
         }
-
+    
         private void CarregarDisciplina(List<Disciplina> disciplinas)
         {
             cmbDisciplina.Items.Clear();
@@ -35,16 +34,33 @@ namespace TestesDonaMarina.ModuloMateria
             set
             {
                 materia = value;
-                txtNomeMateria.Text = materia.ToString();
-                cmbDisciplina.SelectedItem = materia.Disciplina;
+                //txtNomeMateria.Text = materia.NomeMateria.ToString();
+                cmbDisciplina.SelectedItem = materia.Disciplina != null;
             }
         }
+        private void TelaCadastroCompromissosForm_Load(object sender, EventArgs e)
+        {
+            TelaPrincipalForm.Instancia.AtualizarRodape("");
+        }
 
-        private void btnGravarDisciplina_Click(object sender, EventArgs e)
+
+        private void TelaCadastroMateriaForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            TelaPrincipalForm.Instancia.AtualizarRodape("");
+        }
+
+        private void btnGravar_Click(object sender, EventArgs e)
         {
             materia.NomeMateria = txtNomeMateria.Text;
             materia.Disciplina = (Disciplina)cmbDisciplina.SelectedItem;
-
+            if (rdbPrimeira.Checked)
+            {
+                materia.Serie = Serie.PRIMEIRA;
+            }
+            else
+            {
+                materia.Serie = Serie.SEGUNDA;
+            }
             var resultadoValidacao = GravarRegistro(materia);
 
             if (resultadoValidacao.IsValid == false)
@@ -55,27 +71,6 @@ namespace TestesDonaMarina.ModuloMateria
 
                 DialogResult = DialogResult.None;
             }
-
-
-        }
-
-        private void TelaCadastroMateriaForm_Load(object sender, EventArgs e)
-        {
-            TelaPrincipalForm.Instancia.AtualizarRodape("");
-        }
-
-        private void TelaCadastroMateriaForm_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            TelaPrincipalForm.Instancia.AtualizarRodape("");
-        }
-        private void rdbPrimeira_CheckedChanged(object sender, EventArgs e)
-        {
-            rdbSegunda.Enabled = false;
-        }
-
-        private void rdbSegunda_CheckedChanged(object sender, EventArgs e)
-        {
-            rdbPrimeira.Enabled = false;
         }
     }
 

@@ -1,9 +1,5 @@
 ﻿using FluentValidation;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace TestesDonaMarina.Dominio.ModuloMateria
 {
@@ -12,7 +8,7 @@ namespace TestesDonaMarina.Dominio.ModuloMateria
         public ValidadorMateria()
         {
             RuleFor(x => x.NomeMateria).NotNull().NotEmpty();
-            RuleFor(x => x.Serie).NotNull().NotEmpty();
+            RuleFor(x => x.Disciplina).NotNull().NotEmpty();
         }
     }
 }

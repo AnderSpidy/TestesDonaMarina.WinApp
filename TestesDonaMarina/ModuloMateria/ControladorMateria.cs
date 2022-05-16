@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using TestesDonaMarina.Compartilhado;
 using TestesDonaMarina.Dominio.ModuloDisciplina;
@@ -14,10 +11,12 @@ namespace TestesDonaMarina.ModuloMateria
     {
         private readonly IRepositorioMateria repositorioMateria;
         private readonly IRepositorioDisciplina repositorioDisciplina;
-        private TabelaMateriaControl tabelaDisciplinas;
+       
+        private TabelaMateriaControl tabelaMateria;
 
-        public ControladorMateria(IRepositorioMateria repositorioMateria)
+        public ControladorMateria(IRepositorioMateria repositorioMateria, IRepositorioDisciplina repositorioDisciplina)
         {
+            this.repositorioDisciplina = repositorioDisciplina;
             this.repositorioMateria = repositorioMateria;
         }
 
@@ -93,17 +92,17 @@ namespace TestesDonaMarina.ModuloMateria
 
         public override UserControl ObtemListagem()
         {
-            //if (tabelaContatos == null)
-            tabelaDisciplinas = new TabelaMateriaControl();
+            if (tabelaMateria == null)
+                tabelaMateria = new TabelaMateriaControl();
 
             CarregarMateria();
 
-            return tabelaDisciplinas;
+            return tabelaMateria;
         }
 
         private Materia ObtemMateriaSelecionada()
         {
-            var numero = tabelaDisciplinas.ObtemNumeroMateriaSelecionada();
+            var numero = tabelaMateria.ObtemNumeroMateriaSelecionada();
 
             return repositorioMateria.SelecionarPorNumero(numero);
         }
@@ -111,9 +110,9 @@ namespace TestesDonaMarina.ModuloMateria
         {
             List<Materia> materias = repositorioMateria.SelecionarTodos();
 
-            tabelaDisciplinas.AtualizarRegistros(materias);
+            tabelaMateria.AtualizarRegistros(materias);
 
-            TelaPrincipalForm.Instancia.AtualizarRodape($"Visualizando {materias.Count} contato(s)");
+            TelaPrincipalForm.Instancia.AtualizarRodape($"Visualizando {materias.Count} materia(s)");
 
         }
     }

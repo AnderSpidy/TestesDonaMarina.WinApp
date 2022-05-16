@@ -1,10 +1,6 @@
 ﻿using FluentValidation;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TestesDonaMarina.Dominio.ModuloDisciplina;
 using TestesDonaMarina.Dominio.ModuloMateria;
 using TestesDonaMarina.Infra.Arquivos.Compartilhado;
 

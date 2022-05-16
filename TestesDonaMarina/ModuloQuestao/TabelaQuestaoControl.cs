@@ -1,22 +1,26 @@
-﻿using System.Collections.Generic;
-
-using TestesDonaMarina.Compartilhado;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
+using TestesDonaMarina.Compartilhado;
 using TestesDonaMarina.Dominio.ModuloMateria;
 
-namespace TestesDonaMarina.ModuloMateria
+namespace TestesDonaMarina.ModuloQuestao
 {
-    public partial class TabelaMateriaControl : UserControl
+    public partial class TabelaQuestaoControl : UserControl
     {
-        public TabelaMateriaControl()
+        public TabelaQuestaoControl()
         {
             InitializeComponent();
             grid.ConfigurarGridZebrado();
             grid.ConfigurarGridSomenteLeitura();
             grid.Columns.AddRange(ObterColunas());
-           
         }
-
         private DataGridViewColumn[] ObterColunas()
         {
             var colunas = new DataGridViewColumn[]
@@ -33,7 +37,6 @@ namespace TestesDonaMarina.ModuloMateria
 
             return colunas;
         }
-
         public int ObtemNumeroMateriaSelecionada()
         {
             return grid.SelecionarNumero<int>();
@@ -45,7 +48,7 @@ namespace TestesDonaMarina.ModuloMateria
 
             foreach (var materia in materias)
             {
-                grid.Rows.Add(materia.Numero,materia.NomeMateria, materia.Disciplina.Nome,materia.Serie);
+                grid.Rows.Add(materia.Numero, materia.NomeMateria, materia.Disciplina.Nome, materia.Serie);
             }
         }
     }

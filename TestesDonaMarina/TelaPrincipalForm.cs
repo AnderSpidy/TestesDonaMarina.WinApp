@@ -9,6 +9,7 @@ using TestesDonaMarina.ModuloMateria;
 using TestesDonaMarina.ModuloQuestao;
 using TestesDonaMarina.ModulosTeste;
 using TestesDonaMarina.Infra.Arquivos.ModuloMateria;
+using TestesDonaMarina.Infra.Arquivos.ModuloQuestao;
 
 namespace TestesDonaMarina
 {
@@ -20,6 +21,7 @@ namespace TestesDonaMarina
         public TelaPrincipalForm(DataContext contextoDados)
         {
             InitializeComponent();
+
             Instancia = this;
 
             labelRodape.Text = string.Empty;
@@ -51,16 +53,12 @@ namespace TestesDonaMarina
 
         private void questoesMenuItem_Click(object sender, EventArgs e)
         {
-            ListagemQuestaoControl listagem = new ListagemQuestaoControl();
-            panelDeRegistros.Controls.Clear();
-            panelDeRegistros.Controls.Add(listagem);
+            ConfigurarTelaPrincipal((ToolStripMenuItem)sender);
         }
 
         private void testesMenuItem_Click(object sender, EventArgs e)
         {
-            ListagemTesteControl listagem = new ListagemTesteControl();
-            panelDeRegistros.Controls.Clear();
-            panelDeRegistros.Controls.Add(listagem);
+            ConfigurarTelaPrincipal((ToolStripMenuItem)sender);
         }
         private void btnInserir_Click(object sender, EventArgs e)
         {
@@ -140,16 +138,13 @@ namespace TestesDonaMarina
         {
             var repositorioDisciplina = new RepositorioDisciplinaEmArquivo(contextoDados);
             var repositorioMateria = new RepositorioMateriaEmArquivo(contextoDados);
-            //var repositorioCompromisso = new RepositorioCompromissoEmArquivo(contextoDados);
-            //var repositorioDespesa = new RepositorioDespesaEmArquivo(contextoDados);
+            var repositorioQuestao = new RepositorioQuestaoEmArquivo(contextoDados);
 
             controladores = new Dictionary<string, ControladorBase>();
 
             controladores.Add("Disciplinas", new ControladorDisciplina(repositorioDisciplina));
-            controladores.Add("Matérias", new ControladorMateria(repositorioMateria));
-            //controladores.Add("Contatos", new ControladorContato(repositorioContato));
-            //controladores.Add("Compromissos", new ControladorCompromisso(repositorioCompromisso, repositorioContato));
-            //controladores.Add("Despesas", new ControladorDespesa(repositorioDespesa));
+            controladores.Add("Matérias", new ControladorMateria(repositorioMateria, repositorioDisciplina));
+            controladores.Add("Questões", new ControladorQuestao(repositorioQuestao,repositorioMateria,repositorioDisciplina));
         }
 
        
