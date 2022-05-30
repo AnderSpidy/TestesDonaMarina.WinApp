@@ -30,6 +30,13 @@ namespace TestesDonaMarina.Infra.Arquivos.ModuloQuestao
 
             return resultadoValidacao;
         }
+        public void AdicionarAlternativas(Questao questao, List<Alternativa> alternativas)
+        {
+            foreach (var a in alternativas)
+            {
+                questao.AdicionarAlternativa(a);
+            }
+        }
         private ValidationResult Validar(Questao registro)
         {
             var validator = ObterValidador();
@@ -48,6 +55,7 @@ namespace TestesDonaMarina.Infra.Arquivos.ModuloQuestao
 
             return resultadoValidacao;
         }
+       
         public override List<Questao> ObterRegistros()
         {
             return dataContext.Questoes;

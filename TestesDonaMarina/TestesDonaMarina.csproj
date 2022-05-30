@@ -12,6 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\testesDaMariana.Infra.BancoDeDados\testesDaMariana.Infra.BancoDeDados.csproj" />
     <ProjectReference Include="..\TestesDonaMarina.Dominio\TestesDonaMarina.Dominio.csproj" />
     <ProjectReference Include="..\TestesDonaMarina.Infra.Arquivos\TestesDonaMarina.Infra.Arquivos.csproj" />
   </ItemGroup>

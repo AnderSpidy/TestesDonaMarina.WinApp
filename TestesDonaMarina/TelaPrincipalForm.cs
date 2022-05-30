@@ -10,6 +10,7 @@ using TestesDonaMarina.ModuloQuestao;
 using TestesDonaMarina.ModulosTeste;
 using TestesDonaMarina.Infra.Arquivos.ModuloMateria;
 using TestesDonaMarina.Infra.Arquivos.ModuloQuestao;
+using testesDaMariana.Infra.BancoDeDados.ModuloDisciplina;
 
 namespace TestesDonaMarina
 {
@@ -136,7 +137,7 @@ namespace TestesDonaMarina
 
         private void InicializarControladores()
         {
-            var repositorioDisciplina = new RepositorioDisciplinaEmArquivo(contextoDados);
+            var repositorioDisciplina = new RepositorioDisciplinaEmBancoDeDados();
             var repositorioMateria = new RepositorioMateriaEmArquivo(contextoDados);
             var repositorioQuestao = new RepositorioQuestaoEmArquivo(contextoDados);
 

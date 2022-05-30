@@ -27,21 +27,19 @@ namespace TestesDonaMarina.ModuloQuestao
 
         public override void Inserir()
         {
-            var disciplinas = repositorioDisciplina.SelecionarTodos();
-            var materias = repositorioMateria.SelecionarTodos();
-
-            TelaCadastroQuestaoForm tela = new TelaCadastroQuestaoForm(disciplinas,materias);
             
+            TelaCadastroQuestaoForm tela = new TelaCadastroQuestaoForm(repositorioDisciplina, repositorioMateria);
             tela.Questao = new Questao();
-            // o inserir, no esta aceitando o  FluentValidation.Results;
-            //tela.GravarRegistro = repositorioQuestao.Inserir;
-            
+
+            tela.GravarRegistro = repositorioQuestao.Inserir;
 
             DialogResult resultado = tela.ShowDialog();
-
             if (resultado == DialogResult.OK)
             {
-                CarregarQuestoes();
+                
+                //List<Alternativa> alternativas = ;
+                //repositorioQuestao.AdicionarAlternativas(tela.Questao, alternativas);
+                //CarregarQuestoes();
             }
         }
         public override void Editar()
@@ -79,7 +77,7 @@ namespace TestesDonaMarina.ModuloQuestao
         }
         private void CarregarQuestoes()
         {
-            List<Materia> materias = repositorioMateria.SelecionarTodos();
+            var materias = repositorioQuestao.SelecionarTodos();
 
             tabelaQuestoes.AtualizarRegistros(materias);
 
