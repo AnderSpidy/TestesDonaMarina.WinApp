@@ -44,7 +44,7 @@ namespace TestesDonaMarina.ModuloQuestao
 
             return colunas;
         }
-        public int ObtemNumeroMateriaSelecionada()
+        public int ObtemNumeroQuestaoSelecionada()
         {
             return grid.SelecionarNumero<int>();
         }

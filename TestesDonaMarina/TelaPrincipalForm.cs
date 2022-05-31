@@ -11,6 +11,10 @@ using TestesDonaMarina.ModulosTeste;
 using TestesDonaMarina.Infra.Arquivos.ModuloMateria;
 using TestesDonaMarina.Infra.Arquivos.ModuloQuestao;
 using testesDaMariana.Infra.BancoDeDados.ModuloDisciplina;
+using TestesDonaMarina.Infra.Arquivos.ModuloTeste;
+using testesDaMariana.Infra.BancoDeDados.ModuloMateria;
+using testesDaMariana.Infra.BancoDeDados.ModuloQuestao;
+using testesDaMariana.Infra.BancoDeDados.ModuloTeste;
 
 namespace TestesDonaMarina
 {
@@ -138,14 +142,16 @@ namespace TestesDonaMarina
         private void InicializarControladores()
         {
             var repositorioDisciplina = new RepositorioDisciplinaEmBancoDeDados();
-            var repositorioMateria = new RepositorioMateriaEmArquivo(contextoDados);
-            var repositorioQuestao = new RepositorioQuestaoEmArquivo(contextoDados);
+            var repositorioMateria = new RepositorioMateriaEmBancoDeDados();
+            var repositorioQuestao = new RepositorioQuestaoEmBancoDeDados();
+            var repositorioTeste = new RepositorioTesteEmBancoDeDados();
 
             controladores = new Dictionary<string, ControladorBase>();
 
             controladores.Add("Disciplinas", new ControladorDisciplina(repositorioDisciplina));
             controladores.Add("Matérias", new ControladorMateria(repositorioMateria, repositorioDisciplina));
-            controladores.Add("Questões", new ControladorQuestao(repositorioQuestao,repositorioMateria,repositorioDisciplina));
+            controladores.Add("Questões", new ControladorQuestao(repositorioQuestao,repositorioMateria,repositorioDisciplina,repositorioTeste));
+            controladores.Add("Testes", new ControladorTeste(repositorioTeste, repositorioDisciplina, repositorioMateria, repositorioQuestao));
         }
 
        

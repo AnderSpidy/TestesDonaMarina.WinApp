@@ -85,7 +85,7 @@ namespace TestesDonaMarina.ModuloDisciplina
 
         public override UserControl ObtemListagem()
         {
-            //if (tabelaContatos == null)
+            
             tabelaDisciplinas = new TabelaDisciplinaControl();
 
             CarregarDisciplinas();

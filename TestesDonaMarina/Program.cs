@@ -7,7 +7,7 @@ namespace TestesDonaMarina
 {
     internal static class Program
     {
-        static ISerializador serializador = new SerializadorDadosEmXml();
+        static ISerializador serializador = new SerializadorDadosEmJsonDotnet();
 
         static DataContext contexto = new DataContext(serializador);
         /// <summary>

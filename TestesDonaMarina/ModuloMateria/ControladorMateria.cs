@@ -9,10 +9,10 @@ namespace TestesDonaMarina.ModuloMateria
 {
     public class ControladorMateria : ControladorBase
     {
-        private readonly IRepositorioMateria repositorioMateria;
-        private readonly IRepositorioDisciplina repositorioDisciplina;
+        IRepositorioMateria repositorioMateria;
+        IRepositorioDisciplina repositorioDisciplina;
        
-        private TabelaMateriaControl tabelaMateria;
+        TabelaMateriaControl tabelaMateria;
 
         public ControladorMateria(IRepositorioMateria repositorioMateria, IRepositorioDisciplina repositorioDisciplina)
         {
@@ -22,19 +22,14 @@ namespace TestesDonaMarina.ModuloMateria
 
         public override void Inserir()
         {
-            var disciplinas = repositorioDisciplina.SelecionarTodos();
-
-            TelaCadastroMateriaForm tela = new TelaCadastroMateriaForm(disciplinas);
+            TelaCadastroMateriaForm tela = new TelaCadastroMateriaForm(repositorioDisciplina);
             tela.Materia = new Materia();
 
             tela.GravarRegistro = repositorioMateria.Inserir;
 
             DialogResult resultado = tela.ShowDialog();
-
             if (resultado == DialogResult.OK)
-            {
-                CarregarMateria();
-            }
+                CarregarMaterias();
         }
         public override void Editar()
         {
@@ -46,9 +41,9 @@ namespace TestesDonaMarina.ModuloMateria
                 "Edição de Disciplina", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
-            var disciplinas = repositorioDisciplina.SelecionarTodos();
+            //var disciplinas = repositorioDisciplina.SelecionarTodos();
 
-            TelaCadastroMateriaForm tela = new TelaCadastroMateriaForm(disciplinas);
+            TelaCadastroMateriaForm tela = new TelaCadastroMateriaForm(repositorioDisciplina);
 
             tela.Materia = materiaDisciplina;
 
@@ -58,7 +53,8 @@ namespace TestesDonaMarina.ModuloMateria
 
             if (resultado == DialogResult.OK)
             {
-                CarregarMateria();
+                repositorioMateria.Editar(tela.Materia);
+                CarregarMaterias();
             }
         }
 
@@ -79,25 +75,8 @@ namespace TestesDonaMarina.ModuloMateria
             if (resultado == DialogResult.OK)
             {
                 repositorioMateria.Excluir(materiaSelecionada);
-                CarregarMateria();
+                CarregarMaterias();
             }
-        }
-
-
-
-        public override ConfiguracaoToolboxBase ObtemConfiguracaoToolbox()
-        {
-            return new ConfiguracaoToolboxMateria();
-        }
-
-        public override UserControl ObtemListagem()
-        {
-            if (tabelaMateria == null)
-                tabelaMateria = new TabelaMateriaControl();
-
-            CarregarMateria();
-
-            return tabelaMateria;
         }
 
         private Materia ObtemMateriaSelecionada()
@@ -106,7 +85,7 @@ namespace TestesDonaMarina.ModuloMateria
 
             return repositorioMateria.SelecionarPorNumero(numero);
         }
-        private void CarregarMateria()
+        private void CarregarMaterias()
         {
             List<Materia> materias = repositorioMateria.SelecionarTodos();
 
@@ -114,6 +93,20 @@ namespace TestesDonaMarina.ModuloMateria
 
             TelaPrincipalForm.Instancia.AtualizarRodape($"Visualizando {materias.Count} materia(s)");
 
+        }
+        public override ConfiguracaoToolboxBase ObtemConfiguracaoToolbox()
+        {
+            return new ConfiguracaoToolboxMateria();
+        }
+
+        public override UserControl ObtemListagem()
+        {
+            tabelaMateria = new TabelaMateriaControl();
+
+
+            CarregarMaterias();
+
+            return tabelaMateria;
         }
     }
 }

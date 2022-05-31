@@ -121,7 +121,6 @@
             // cmbDisciplina
             // 
             this.cmbDisciplina.BackColor = System.Drawing.Color.White;
-            this.cmbDisciplina.DisplayMember = "Nome";
             this.cmbDisciplina.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbDisciplina.FormattingEnabled = true;
             this.cmbDisciplina.Location = new System.Drawing.Point(115, 58);

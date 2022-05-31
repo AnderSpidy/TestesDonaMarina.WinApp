@@ -32,21 +32,21 @@
             this.txtEnunciado = new System.Windows.Forms.TextBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.label6 = new System.Windows.Forms.Label();
+            this.cmbLetraAlternativa = new System.Windows.Forms.ComboBox();
+            this.cmbAlternativaCorreta = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.btnExcluirAlternativa = new System.Windows.Forms.Button();
             this.listAlternativas = new System.Windows.Forms.ListBox();
-            this.btnAdicionar = new System.Windows.Forms.Button();
+            this.btnAdicionarAlternativa = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.txtAlternativa = new System.Windows.Forms.TextBox();
-            this.btnCancelarDisciplina = new System.Windows.Forms.Button();
-            this.btnGravarDisciplina = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnGravar = new System.Windows.Forms.Button();
             this.cmbMateria = new System.Windows.Forms.ComboBox();
             this.cmbDisciplina = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.cmbAlternativaCorreta = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.btnExcluirAlternativa = new System.Windows.Forms.Button();
-            this.cmbLetraAlternativa = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.SuspendLayout();
@@ -87,7 +87,7 @@
             this.tabPage2.Controls.Add(this.label3);
             this.tabPage2.Controls.Add(this.btnExcluirAlternativa);
             this.tabPage2.Controls.Add(this.listAlternativas);
-            this.tabPage2.Controls.Add(this.btnAdicionar);
+            this.tabPage2.Controls.Add(this.btnAdicionarAlternativa);
             this.tabPage2.Controls.Add(this.label5);
             this.tabPage2.Controls.Add(this.txtAlternativa);
             this.tabPage2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
@@ -98,94 +98,33 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Alternativas";
             // 
-            // listAlternativas
+            // label6
             // 
-            this.listAlternativas.FormattingEnabled = true;
-            this.listAlternativas.ItemHeight = 15;
-            this.listAlternativas.Location = new System.Drawing.Point(5, 35);
-            this.listAlternativas.Name = "listAlternativas";
-            this.listAlternativas.Size = new System.Drawing.Size(457, 154);
-            this.listAlternativas.TabIndex = 16;
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(5, 194);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(36, 15);
+            this.label6.TabIndex = 22;
+            this.label6.Text = "Letra:";
             // 
-            // btnAdicionar
+            // cmbLetraAlternativa
             // 
-            this.btnAdicionar.Location = new System.Drawing.Point(392, 6);
-            this.btnAdicionar.Name = "btnAdicionar";
-            this.btnAdicionar.Size = new System.Drawing.Size(75, 23);
-            this.btnAdicionar.TabIndex = 14;
-            this.btnAdicionar.Text = "Adicionar";
-            this.btnAdicionar.UseVisualStyleBackColor = true;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(1, 10);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(61, 15);
-            this.label5.TabIndex = 13;
-            this.label5.Text = "Descrição:";
-            // 
-            // txtAlternativa
-            // 
-            this.txtAlternativa.Location = new System.Drawing.Point(66, 6);
-            this.txtAlternativa.Name = "txtAlternativa";
-            this.txtAlternativa.Size = new System.Drawing.Size(320, 23);
-            this.txtAlternativa.TabIndex = 13;
-            // 
-            // btnCancelarDisciplina
-            // 
-            this.btnCancelarDisciplina.Location = new System.Drawing.Point(419, 353);
-            this.btnCancelarDisciplina.Name = "btnCancelarDisciplina";
-            this.btnCancelarDisciplina.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelarDisciplina.TabIndex = 14;
-            this.btnCancelarDisciplina.Text = "Cancelar";
-            this.btnCancelarDisciplina.UseVisualStyleBackColor = true;
-            // 
-            // btnGravarDisciplina
-            // 
-            this.btnGravarDisciplina.Location = new System.Drawing.Point(338, 353);
-            this.btnGravarDisciplina.Name = "btnGravarDisciplina";
-            this.btnGravarDisciplina.Size = new System.Drawing.Size(75, 23);
-            this.btnGravarDisciplina.TabIndex = 13;
-            this.btnGravarDisciplina.Text = "Gravar";
-            this.btnGravarDisciplina.UseVisualStyleBackColor = true;
-            // 
-            // cmbMateria
-            // 
-            this.cmbMateria.BackColor = System.Drawing.Color.White;
-            this.cmbMateria.DisplayMember = "Nome";
-            this.cmbMateria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbMateria.FormattingEnabled = true;
-            this.cmbMateria.Location = new System.Drawing.Point(79, 64);
-            this.cmbMateria.Name = "cmbMateria";
-            this.cmbMateria.Size = new System.Drawing.Size(94, 23);
-            this.cmbMateria.TabIndex = 16;
-            // 
-            // cmbDisciplina
-            // 
-            this.cmbDisciplina.FormattingEnabled = true;
-            this.cmbDisciplina.Location = new System.Drawing.Point(79, 35);
-            this.cmbDisciplina.Name = "cmbDisciplina";
-            this.cmbDisciplina.Size = new System.Drawing.Size(94, 23);
-            this.cmbDisciplina.TabIndex = 17;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(23, 67);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(50, 15);
-            this.label1.TabIndex = 18;
-            this.label1.Text = "Matéria:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 38);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(61, 15);
-            this.label2.TabIndex = 19;
-            this.label2.Text = "Disciplina:";
+            this.cmbLetraAlternativa.DropDownHeight = 60;
+            this.cmbLetraAlternativa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbLetraAlternativa.DropDownWidth = 35;
+            this.cmbLetraAlternativa.FormattingEnabled = true;
+            this.cmbLetraAlternativa.IntegralHeight = false;
+            this.cmbLetraAlternativa.ItemHeight = 15;
+            this.cmbLetraAlternativa.Items.AddRange(new object[] {
+            "A",
+            "B",
+            "C",
+            "D",
+            "E"});
+            this.cmbLetraAlternativa.Location = new System.Drawing.Point(50, 190);
+            this.cmbLetraAlternativa.Name = "cmbLetraAlternativa";
+            this.cmbLetraAlternativa.Size = new System.Drawing.Size(50, 23);
+            this.cmbLetraAlternativa.TabIndex = 21;
             // 
             // cmbAlternativaCorreta
             // 
@@ -224,34 +163,101 @@
             this.btnExcluirAlternativa.TabIndex = 17;
             this.btnExcluirAlternativa.Text = "Excluir";
             this.btnExcluirAlternativa.UseVisualStyleBackColor = true;
+            this.btnExcluirAlternativa.Click += new System.EventHandler(this.btnExcluirAlternativa_Click);
             // 
-            // cmbLetraAlternativa
+            // listAlternativas
             // 
-            this.cmbLetraAlternativa.DropDownHeight = 60;
-            this.cmbLetraAlternativa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbLetraAlternativa.DropDownWidth = 35;
-            this.cmbLetraAlternativa.FormattingEnabled = true;
-            this.cmbLetraAlternativa.IntegralHeight = false;
-            this.cmbLetraAlternativa.ItemHeight = 15;
-            this.cmbLetraAlternativa.Items.AddRange(new object[] {
-            "A",
-            "B",
-            "C",
-            "D",
-            "E"});
-            this.cmbLetraAlternativa.Location = new System.Drawing.Point(50, 190);
-            this.cmbLetraAlternativa.Name = "cmbLetraAlternativa";
-            this.cmbLetraAlternativa.Size = new System.Drawing.Size(50, 23);
-            this.cmbLetraAlternativa.TabIndex = 21;
+            this.listAlternativas.FormattingEnabled = true;
+            this.listAlternativas.ItemHeight = 15;
+            this.listAlternativas.Location = new System.Drawing.Point(5, 35);
+            this.listAlternativas.Name = "listAlternativas";
+            this.listAlternativas.Size = new System.Drawing.Size(457, 154);
+            this.listAlternativas.TabIndex = 16;
             // 
-            // label6
+            // btnAdicionarAlternativa
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(5, 194);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(36, 15);
-            this.label6.TabIndex = 22;
-            this.label6.Text = "Letra:";
+            this.btnAdicionarAlternativa.Location = new System.Drawing.Point(392, 6);
+            this.btnAdicionarAlternativa.Name = "btnAdicionarAlternativa";
+            this.btnAdicionarAlternativa.Size = new System.Drawing.Size(75, 23);
+            this.btnAdicionarAlternativa.TabIndex = 14;
+            this.btnAdicionarAlternativa.Text = "Adicionar";
+            this.btnAdicionarAlternativa.UseVisualStyleBackColor = true;
+            this.btnAdicionarAlternativa.Click += new System.EventHandler(this.btnAdicionarAlternativa_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(1, 10);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(61, 15);
+            this.label5.TabIndex = 13;
+            this.label5.Text = "Descrição:";
+            // 
+            // txtAlternativa
+            // 
+            this.txtAlternativa.Location = new System.Drawing.Point(66, 6);
+            this.txtAlternativa.Name = "txtAlternativa";
+            this.txtAlternativa.Size = new System.Drawing.Size(320, 23);
+            this.txtAlternativa.TabIndex = 13;
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancelar.Location = new System.Drawing.Point(419, 353);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelar.TabIndex = 14;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            // 
+            // btnGravar
+            // 
+            this.btnGravar.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.btnGravar.Location = new System.Drawing.Point(338, 353);
+            this.btnGravar.Name = "btnGravar";
+            this.btnGravar.Size = new System.Drawing.Size(75, 23);
+            this.btnGravar.TabIndex = 13;
+            this.btnGravar.Text = "Gravar";
+            this.btnGravar.UseVisualStyleBackColor = true;
+            this.btnGravar.Click += new System.EventHandler(this.btnGravar_Click);
+            // 
+            // cmbMateria
+            // 
+            this.cmbMateria.BackColor = System.Drawing.Color.White;
+            this.cmbMateria.DisplayMember = "Nome";
+            this.cmbMateria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbMateria.FormattingEnabled = true;
+            this.cmbMateria.Location = new System.Drawing.Point(79, 64);
+            this.cmbMateria.Name = "cmbMateria";
+            this.cmbMateria.Size = new System.Drawing.Size(94, 23);
+            this.cmbMateria.TabIndex = 16;
+            // 
+            // cmbDisciplina
+            // 
+            this.cmbDisciplina.FormattingEnabled = true;
+            this.cmbDisciplina.Location = new System.Drawing.Point(79, 35);
+            this.cmbDisciplina.Name = "cmbDisciplina";
+            this.cmbDisciplina.Size = new System.Drawing.Size(94, 23);
+            this.cmbDisciplina.TabIndex = 17;
+            this.cmbDisciplina.SelectedIndexChanged += new System.EventHandler(this.cmbDisciplina_SelectedIndexChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(23, 67);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(50, 15);
+            this.label1.TabIndex = 18;
+            this.label1.Text = "Matéria:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(12, 38);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(61, 15);
+            this.label2.TabIndex = 19;
+            this.label2.Text = "Disciplina:";
             // 
             // TelaCadastroQuestaoForm
             // 
@@ -262,13 +268,15 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cmbDisciplina);
             this.Controls.Add(this.cmbMateria);
-            this.Controls.Add(this.btnCancelarDisciplina);
-            this.Controls.Add(this.btnGravarDisciplina);
+            this.Controls.Add(this.btnCancelar);
+            this.Controls.Add(this.btnGravar);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.txtEnunciado);
             this.Controls.Add(this.label4);
             this.Name = "TelaCadastroQuestaoForm";
             this.Text = "Cadastro de Questões";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.TelaCadastroQuestao_FormClosing);
+            this.Load += new System.EventHandler(this.TelaCadastroQuestao_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
@@ -282,11 +290,11 @@
         private System.Windows.Forms.TextBox txtEnunciado;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.Button btnAdicionar;
+        private System.Windows.Forms.Button btnAdicionarAlternativa;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtAlternativa;
-        private System.Windows.Forms.Button btnCancelarDisciplina;
-        private System.Windows.Forms.Button btnGravarDisciplina;
+        private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.Button btnGravar;
         private System.Windows.Forms.ListBox listAlternativas;
         private System.Windows.Forms.ComboBox cmbMateria;
         private System.Windows.Forms.ComboBox cmbDisciplina;

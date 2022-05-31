@@ -44,6 +44,7 @@ namespace TestesDonaMarina.ModuloQuestao
             }
         }
 
+
         public List<Alternativa> AlternativasAdicionadas
         {
             get
@@ -90,7 +91,7 @@ namespace TestesDonaMarina.ModuloQuestao
 
         }
 
-        private void btnAddAlternativa_Click(object sender, EventArgs e)
+        private void btnAdicionarAlternativa_Click(object sender, EventArgs e)
         {
             listAlternativas.Sorted = true;
 
@@ -147,20 +148,21 @@ namespace TestesDonaMarina.ModuloQuestao
         private void CarregarDisciplinas()
         {
             List<Disciplina> disciplinas = repositorioDisciplina.SelecionarTodos();
-            foreach (Disciplina d in disciplinas)
+            foreach (Disciplina disciplina in disciplinas)
             {
-                cmbDisciplina.Items.Add(d);
+                cmbDisciplina.Items.Add(disciplina);
             }
         }
 
-        private void comboBoxDisciplinas_SelectedIndexChanged(object sender, EventArgs e)
+        private void cmbDisciplina_SelectedIndexChanged(object sender, EventArgs e)
         {
             cmbMateria.Items.Clear();
 
             List<Materia> materias = repositorioMateria.SelecionarTodos();
+            
             foreach (Materia m in materias)
             {
-                if (m.Disciplina.Nome == ((Disciplina)cmbDisciplina.SelectedItem).Nome)
+                if (m.Disciplina.Nome == Convert.ToString(cmbDisciplina.SelectedItem))
                 {
                     cmbMateria.Items.Add(m);
 
@@ -181,11 +183,13 @@ namespace TestesDonaMarina.ModuloQuestao
             TelaPrincipalForm.Instancia.AtualizarRodape("");
 
         }
+
+
+
+
+
         #endregion
 
-        private void comboBoxMaterias_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
+       
     }
 }

@@ -34,6 +34,15 @@ namespace TestesDonaMarina.Compartilhado
         public virtual bool FiltrarHabilitado { get { return false; } }
 
         public virtual bool AgruparHabilitado { get { return false; } }
+
+        public virtual string TooltipVisualizarDetalhes { get; }
+
+        public virtual bool VisualizarDetalhesHabilitado { get { return false; } }
+
+        public virtual bool GerarPdfHabilitado { get { return false; } }
+        public virtual bool DuplicarHabilitado { get { return false; } }
+        public virtual string TooltipGerarPdf { get; }
+        public virtual string TooltipDuplicar { get; }
     }
 }
 

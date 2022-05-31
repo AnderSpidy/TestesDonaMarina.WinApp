@@ -46,7 +46,7 @@ namespace TestesDonaMarina.ModuloDisciplina
 
         }
 
-
+        //rodapés
         private void TelaCadastroDisciplinaForm_Load(object sender, EventArgs e)
         {
             TelaPrincipalForm.Instancia.AtualizarRodape("");

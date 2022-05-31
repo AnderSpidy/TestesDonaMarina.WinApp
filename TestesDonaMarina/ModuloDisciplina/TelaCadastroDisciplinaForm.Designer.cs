@@ -29,9 +29,7 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.txtNomeDisciplina = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.btnGravarDisciplina = new System.Windows.Forms.Button();
             this.btnCancelarDisciplina = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
@@ -47,15 +45,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Nome da Disciplina:";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(98, 67);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 15);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Série:";
-            // 
             // txtNomeDisciplina
             // 
             this.txtNomeDisciplina.Location = new System.Drawing.Point(139, 35);
@@ -63,18 +52,10 @@
             this.txtNomeDisciplina.Size = new System.Drawing.Size(149, 23);
             this.txtNomeDisciplina.TabIndex = 2;
             // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(139, 64);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(94, 23);
-            this.comboBox1.TabIndex = 3;
-            // 
             // btnGravarDisciplina
             // 
             this.btnGravarDisciplina.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnGravarDisciplina.Location = new System.Drawing.Point(139, 93);
+            this.btnGravarDisciplina.Location = new System.Drawing.Point(139, 64);
             this.btnGravarDisciplina.Name = "btnGravarDisciplina";
             this.btnGravarDisciplina.Size = new System.Drawing.Size(75, 23);
             this.btnGravarDisciplina.TabIndex = 4;
@@ -85,7 +66,7 @@
             // btnCancelarDisciplina
             // 
             this.btnCancelarDisciplina.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancelarDisciplina.Location = new System.Drawing.Point(220, 93);
+            this.btnCancelarDisciplina.Location = new System.Drawing.Point(220, 64);
             this.btnCancelarDisciplina.Name = "btnCancelarDisciplina";
             this.btnCancelarDisciplina.Size = new System.Drawing.Size(75, 23);
             this.btnCancelarDisciplina.TabIndex = 5;
@@ -103,6 +84,7 @@
             // 
             // txtNumero
             // 
+            this.txtNumero.Enabled = false;
             this.txtNumero.Location = new System.Drawing.Point(139, 9);
             this.txtNumero.Name = "txtNumero";
             this.txtNumero.Size = new System.Drawing.Size(64, 23);
@@ -112,14 +94,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(300, 124);
+            this.ClientSize = new System.Drawing.Size(300, 92);
             this.Controls.Add(this.txtNumero);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btnCancelarDisciplina);
             this.Controls.Add(this.btnGravarDisciplina);
-            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.txtNomeDisciplina);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -140,9 +120,7 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtNomeDisciplina;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Button btnGravarDisciplina;
         private System.Windows.Forms.Button btnCancelarDisciplina;
         private System.Windows.Forms.Label label4;

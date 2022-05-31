@@ -9,6 +9,7 @@ namespace TestesDonaMarina.Dominio.ModuloMateria
         {
             RuleFor(x => x.NomeMateria).NotNull().NotEmpty();
             RuleFor(x => x.Disciplina).NotNull().NotEmpty();
+            
         }
     }
 }

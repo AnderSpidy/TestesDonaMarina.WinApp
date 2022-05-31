@@ -1,5 +1,4 @@
-﻿using System;
-
+﻿
 namespace TestesDonaMarina.Dominio.Compartilhado
 {
     public abstract class EntidadeBase<T>

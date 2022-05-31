@@ -29,7 +29,7 @@ namespace testesDaMariana.Infra.BancoDeDados.ModuloDisciplina
                 );SELECT SCOPE_IDENTITY();";
 
         private const string sqlEditar =
-            @"UPDATE [TBDISCIPLINA]	
+            @"UPDATE [TBDISCIPLINA]
 		        SET
 			        [NOME] = @NOME
 		        WHERE
@@ -43,7 +43,7 @@ namespace testesDaMariana.Infra.BancoDeDados.ModuloDisciplina
         private const string sqlSelecionarTodos =
             @"SELECT 
 		            [NUMERO], 
-		            [NOME]
+		            [NOME] 
 	            FROM 
 		            [TBDISCIPLINA]";
 
@@ -71,7 +71,7 @@ namespace testesDaMariana.Infra.BancoDeDados.ModuloDisciplina
 
             SqlCommand comandoInsercao = new SqlCommand(sqlInserir, conexaoComBanco);
 
-            ConfigurarParametrosContato(novaDisciplina, comandoInsercao);
+            ConfigurarParametrosDisciplina(novaDisciplina, comandoInsercao);
 
             conexaoComBanco.Open();
             var id = comandoInsercao.ExecuteScalar();
@@ -95,7 +95,7 @@ namespace testesDaMariana.Infra.BancoDeDados.ModuloDisciplina
 
             SqlCommand comandoEdicao = new SqlCommand(sqlEditar, conexaoComBanco);
 
-            ConfigurarParametrosContato(disciplina, comandoEdicao);
+            ConfigurarParametrosDisciplina(disciplina, comandoEdicao);
 
             conexaoComBanco.Open();
             comandoEdicao.ExecuteNonQuery();
@@ -132,20 +132,20 @@ namespace testesDaMariana.Infra.BancoDeDados.ModuloDisciplina
             SqlCommand comandoSelecao = new SqlCommand(sqlSelecionarTodos, conexaoComBanco);
 
             conexaoComBanco.Open();
-            SqlDataReader leitorContato = comandoSelecao.ExecuteReader();
+            SqlDataReader leitorDisciplina = comandoSelecao.ExecuteReader();
 
-            List<Disciplina> contatos = new List<Disciplina>();
+            List<Disciplina> disciplinas = new List<Disciplina>();
 
-            while (leitorContato.Read())
+            while (leitorDisciplina.Read())
             {
-                Disciplina contato = ConverterParaContato(leitorContato);
+                Disciplina disciplina = ConverterParaDisciplina(leitorDisciplina);
 
-                contatos.Add(contato);
+                disciplinas.Add(disciplina);
             }
 
             conexaoComBanco.Close();
 
-            return contatos;
+            return disciplinas;
         }
 
         public Disciplina SelecionarPorNumero(int numero)
@@ -157,37 +157,207 @@ namespace testesDaMariana.Infra.BancoDeDados.ModuloDisciplina
             comandoSelecao.Parameters.AddWithValue("NUMERO", numero);
 
             conexaoComBanco.Open();
-            SqlDataReader leitorContato = comandoSelecao.ExecuteReader();
+            SqlDataReader leitorDisciplina = comandoSelecao.ExecuteReader();
 
-            Disciplina contato = null;
-            if (leitorContato.Read())
-                contato = ConverterParaContato(leitorContato);
+            Disciplina disciplina = null;
+            if (leitorDisciplina.Read())
+                disciplina = ConverterParaDisciplina(leitorDisciplina);
 
             conexaoComBanco.Close();
 
-            return contato;
+            return disciplina;
         }
 
-        private static Disciplina ConverterParaContato(SqlDataReader leitorContato)
+        private static Disciplina ConverterParaDisciplina(SqlDataReader leitorDisciplina)
         {
-            int numero = Convert.ToInt32(leitorContato["NUMERO"]);
-            string nome = Convert.ToString(leitorContato["NOME"]);
+            int numero = Convert.ToInt32(leitorDisciplina["NUMERO"]);
+            string nome = Convert.ToString(leitorDisciplina["NOME"]);
 
-
-            var contato = new Disciplina
+            var disciplina = new Disciplina
             {
                 Numero = numero,
                 Nome = nome,
             };
 
-            return contato;
+            return disciplina;
         }
 
-        private static void ConfigurarParametrosContato(Disciplina novoContato, SqlCommand comando)
+        private static void ConfigurarParametrosDisciplina(Disciplina novaDisciplina, SqlCommand comando)
         {
-            comando.Parameters.AddWithValue("NUMERO", novoContato.Numero);
-            comando.Parameters.AddWithValue("NOME", novoContato.Nome);
-
+            comando.Parameters.AddWithValue("NUMERO", novaDisciplina.Numero);
+            comando.Parameters.AddWithValue("NOME", novaDisciplina.Nome);
         }
     }
+    //private const string sqlInserir =
+    //    @"INSERT INTO [TBDISCIPLINA] 
+    //        (
+    //            [NOME]
+    //     )
+    //     VALUES
+    //        (
+    //            @NOME
+    //        );SELECT SCOPE_IDENTITY();";
+
+    //private const string sqlEditar =
+    //    @"UPDATE [TBDISCIPLINA]	
+    //  SET
+    //   [NOME] = @NOME
+    //  WHERE
+    //   [NUMERO] = @NUMERO";
+
+    //private const string sqlExcluir =
+    //    @"DELETE FROM [TBDISCIPLINA]
+    //  WHERE
+    //   [NUMERO] = @NUMERO";
+
+    //private const string sqlSelecionarTodos =
+    //    @"SELECT 
+    //      [NUMERO], 
+    //      [NOME]
+    //     FROM 
+    //      [TBDISCIPLINA]";
+
+    //private const string sqlSelecionarPorNumero =
+    //    @"SELECT 
+    //      [NUMERO], 
+    //      [NOME]
+    //     FROM 
+    //      [TBDISCIPLINA]
+    //  WHERE
+    //            [NUMERO] = @NUMERO";
+
+    //#endregion
+
+    //public ValidationResult Inserir(Disciplina novaDisciplina)
+    //{
+    //    var validador = new ValidadorDisciplina();
+
+    //    var resultadoValidacao = validador.Validate(novaDisciplina);
+
+    //    if (resultadoValidacao.IsValid == false)
+    //        return resultadoValidacao;
+
+    //    SqlConnection conexaoComBanco = new SqlConnection(enderecoBanco);
+
+    //    SqlCommand comandoInsercao = new SqlCommand(sqlInserir, conexaoComBanco);
+
+    //    ConfigurarParametrosDisciplina(novaDisciplina, comandoInsercao);
+
+    //    conexaoComBanco.Open();
+    //    var id = comandoInsercao.ExecuteScalar();
+    //    novaDisciplina.Numero = Convert.ToInt32(id);
+
+    //    conexaoComBanco.Close();
+
+    //    return resultadoValidacao;
+    //}
+
+    //public ValidationResult Editar(Disciplina disciplina)
+    //{
+    //    var validador = new ValidadorDisciplina();
+
+    //    var resultadoValidacao = validador.Validate(disciplina);
+
+    //    if (resultadoValidacao.IsValid == false)
+    //        return resultadoValidacao;
+
+    //    SqlConnection conexaoComBanco = new SqlConnection(enderecoBanco);
+
+    //    SqlCommand comandoEdicao = new SqlCommand(sqlEditar, conexaoComBanco);
+
+    //    ConfigurarParametrosDisciplina(disciplina, comandoEdicao);
+
+    //    conexaoComBanco.Open();
+    //    comandoEdicao.ExecuteNonQuery();
+    //    conexaoComBanco.Close();
+
+    //    return resultadoValidacao;
+    //}
+
+    //public ValidationResult Excluir(Disciplina disciplina)
+    //{
+    //    SqlConnection conexaoComBanco = new SqlConnection(enderecoBanco);
+
+    //    SqlCommand comandoExclusao = new SqlCommand(sqlExcluir, conexaoComBanco);
+
+    //    comandoExclusao.Parameters.AddWithValue("NUMERO", disciplina.Numero);
+
+    //    conexaoComBanco.Open();
+    //    int numeroRegistrosExcluidos = comandoExclusao.ExecuteNonQuery();
+
+    //    var resultadoValidacao = new ValidationResult();
+
+    //    if (numeroRegistrosExcluidos == 0)
+    //        resultadoValidacao.Errors.Add(new ValidationFailure("", "Não foi possível remover o registro"));
+
+    //    conexaoComBanco.Close();
+
+    //    return resultadoValidacao;
+    //}
+
+    //public List<Disciplina> SelecionarTodos()
+    //{
+    //    SqlConnection conexaoComBanco = new SqlConnection(enderecoBanco);
+
+    //    SqlCommand comandoSelecao = new SqlCommand(sqlSelecionarTodos, conexaoComBanco);
+
+    //    conexaoComBanco.Open();
+    //    SqlDataReader leitorDisciplina = comandoSelecao.ExecuteReader();
+
+    //    List<Disciplina> disciplinas = new List<Disciplina>();
+
+    //    while (leitorDisciplina.Read())
+    //    {
+    //        Disciplina disciplina = ConverterParaDisciplina(leitorDisciplina);
+
+    //        disciplinas.Add(disciplina);
+    //    }
+
+    //    conexaoComBanco.Close();
+
+    //    return disciplinas;
+    //}
+
+    //public Disciplina SelecionarPorNumero(int numero)
+    //{
+    //    SqlConnection conexaoComBanco = new SqlConnection(enderecoBanco);
+
+    //    SqlCommand comandoSelecao = new SqlCommand(sqlSelecionarPorNumero, conexaoComBanco);
+
+    //    comandoSelecao.Parameters.AddWithValue("NUMERO", numero);
+
+    //    conexaoComBanco.Open();
+    //    SqlDataReader leitorContato = comandoSelecao.ExecuteReader();
+
+    //    Disciplina disciplina = null;
+    //    if (leitorContato.Read())
+    //        disciplina = ConverterParaDisciplina(leitorContato);
+
+    //    conexaoComBanco.Close();
+
+    //    return disciplina;
+    //}
+
+    //private static Disciplina ConverterParaDisciplina(SqlDataReader leitorContato)
+    //{
+    //    int numero = Convert.ToInt32(leitorContato["NUMERO"]);
+    //    string nome = Convert.ToString(leitorContato["NOME"]);
+
+
+    //    var disciplina = new Disciplina
+    //    {
+    //        Numero = numero,
+    //        Nome = nome,
+    //    };
+
+    //    return disciplina;
+    //}
+
+    //private static void ConfigurarParametrosDisciplina(Disciplina novoContato, SqlCommand comando)
+    //{
+    //    comando.Parameters.AddWithValue("NUMERO", novoContato.Numero);
+    //    comando.Parameters.AddWithValue("NOME", novoContato.Nome);
+
+    //}
 }
+

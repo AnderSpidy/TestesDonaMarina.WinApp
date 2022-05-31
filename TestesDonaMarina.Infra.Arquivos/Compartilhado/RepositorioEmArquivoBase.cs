@@ -1,6 +1,5 @@
 ﻿using FluentValidation;
 using FluentValidation.Results;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using TestesDonaMarina.Dominio.Compartilhado;
@@ -19,9 +18,9 @@ namespace TestesDonaMarina.Infra.Arquivos
             this.dataContext = dataContext;
         }
 
-        public abstract List<T> ObterRegistros();
-
         public abstract AbstractValidator<T> ObterValidador();
+
+        public abstract List<T> ObterRegistros();
 
         public virtual ValidationResult Inserir(T novoRegistro)
         {
@@ -39,10 +38,12 @@ namespace TestesDonaMarina.Infra.Arquivos
             }
 
             return resultadoValidacao;
+
         }
 
         public virtual ValidationResult Editar(T registro)
         {
+
             var validator = ObterValidador();
 
             var resultadoValidacao = validator.Validate(registro);
@@ -62,6 +63,7 @@ namespace TestesDonaMarina.Infra.Arquivos
             }
 
             return resultadoValidacao;
+
         }
 
         public virtual ValidationResult Excluir(T registro)
@@ -76,10 +78,7 @@ namespace TestesDonaMarina.Infra.Arquivos
             return resultadoValidacao;
         }
 
-        public virtual List<T> SelecionarTodos()
-        {
-            return ObterRegistros().ToList();
-        }
+
 
         public virtual T SelecionarPorNumero(int numero)
         {

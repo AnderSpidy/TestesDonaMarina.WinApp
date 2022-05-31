@@ -1,7 +1,10 @@
 ﻿using FluentValidation;
 using FluentValidation.Results;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using TestesDonaMarina.Dominio.ModuloDisciplina;
+using TestesDonaMarina.Dominio.ModuloMateria;
 using TestesDonaMarina.Dominio.ModuloQuestao;
 using TestesDonaMarina.Infra.Arquivos.Compartilhado;
 
@@ -13,8 +16,8 @@ namespace TestesDonaMarina.Infra.Arquivos.ModuloQuestao
         {
             if (dataContext.Questoes.Count > 0)
                 contador = dataContext.Questoes.Max(x => x.Numero);
-            
         }
+
         public override ValidationResult Inserir(Questao novoRegistro)
         {
             var resultadoValidacao = Validar(novoRegistro);
@@ -30,13 +33,23 @@ namespace TestesDonaMarina.Infra.Arquivos.ModuloQuestao
 
             return resultadoValidacao;
         }
-        public void AdicionarAlternativas(Questao questao, List<Alternativa> alternativas)
+
+        public override List<Questao> ObterRegistros()
         {
-            foreach (var a in alternativas)
-            {
-                questao.AdicionarAlternativa(a);
-            }
+            return dataContext.Questoes;
         }
+
+        public List<Questao> SelecionarTodos()
+        {
+            return ObterRegistros().ToList();
+        }
+
+        public override AbstractValidator<Questao> ObterValidador()
+        {
+            return new ValidadorQuestao();
+
+        }
+
         private ValidationResult Validar(Questao registro)
         {
             var validator = ObterValidador();
@@ -47,23 +60,63 @@ namespace TestesDonaMarina.Infra.Arquivos.ModuloQuestao
                 return resultadoValidacao;
 
             var nomeEncontrado = ObterRegistros()
-               .Select(x => x.Enunciado)
-               .Contains(registro.Enunciado);
+               .Select(x => x.Enunciado.ToLower())
+               .Contains(registro.Enunciado.ToLower());
 
             if (nomeEncontrado && registro.Numero == 0)
-                resultadoValidacao.Errors.Add(new ValidationFailure("", "Nome já está cadastrado"));
+                resultadoValidacao.Errors.Add(new ValidationFailure("", "Enunciado já está cadastrado"));
 
             return resultadoValidacao;
         }
-       
-        public override List<Questao> ObterRegistros()
+
+        public void AdicionarAlternativas(Questao questaoSelecionada, List<Alternativa> alternativas)
         {
-            return dataContext.Questoes;
+            foreach (var a in alternativas)
+            {
+                questaoSelecionada.AdicionarAlternativa(a);
+            }
         }
 
-        public override AbstractValidator<Questao> ObterValidador()
+        public List<Questao> Sortear(Materia materia, int qtd)
         {
-            return new ValidadorQuestao();
+            int limite = 0;
+            List<Questao> questoesSorteadas = new List<Questao>();
+            List<Questao> questoesMateriaSelecionada = ObterRegistros().Where(x => x.Materia.Equals(materia)).ToList();
+
+            Random rdm = new Random();
+            List<Questao> questoes = questoesMateriaSelecionada.OrderBy(item => rdm.Next()).ToList();
+
+            foreach (Questao q in questoes)
+            {
+                questoesSorteadas.Add(q);
+                limite++;
+                if (limite == qtd)
+                    break;
+            }
+
+
+            return questoesSorteadas;
+        }
+
+
+        public List<Questao> SortearQuestoesRecuperacao(Disciplina disciplina, int qtd)
+        {
+            int limite = 0;
+            List<Questao> questoesSorteadas = new List<Questao>();
+            List<Questao> questoesDisciplinaSelecionada = ObterRegistros().Where(x => x.Disciplina.Equals(disciplina)).ToList();
+
+            Random rdm = new Random();
+            List<Questao> questoes = questoesDisciplinaSelecionada.OrderBy(item => rdm.Next()).ToList();
+
+            foreach (Questao q in questoes)
+            {
+                questoesSorteadas.Add(q);
+                limite++;
+                if (limite == qtd)
+                    break;
+            }
+
+            return questoesSorteadas;
         }
     }
 }
